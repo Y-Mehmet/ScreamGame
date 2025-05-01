@@ -8,6 +8,9 @@ public class PlayerMovment : MonoBehaviour
     private AudioClip micRecord;
     private string micName;
     private bool isLoud;
+    public Rigidbody chickenRb;
+    public float jumpForce = .5f;
+    public float moveSpeed = 5f;
 
     void Start()
     {
@@ -22,8 +25,10 @@ public class PlayerMovment : MonoBehaviour
 
         if (isLoud)
         {
-            Debug.Log("Çýðlýk algýlandý!");
-            // Buraya zýplama veya çýðlýk efekti gibi aksiyonlarý eklersin.
+            chickenRb.linearVelocity = new Vector2(moveSpeed, jumpForce);
+        }else
+        {
+            chickenRb.linearVelocity = new Vector2(0, 0);
         }
     }
 
